@@ -29,11 +29,11 @@ public class LoginController {
 
 
     @RequestMapping(value={"/index/{id}"}, method = RequestMethod.GET)
-    public ModelAndView employee(@PathVariable("id") String id){
+    public ModelAndView employee(@PathVariable("id") Integer id){
         Employee person = employeeRepository.findById(id);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("id", id);
-        modelAndView.addObject("naam",person.getFirstName());
+        modelAndView.addObject("first_name",person.getFirstName());
         modelAndView.setViewName("employeeIndex");
         return modelAndView;
     }
