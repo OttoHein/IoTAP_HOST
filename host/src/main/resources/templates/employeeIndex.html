@@ -5,17 +5,16 @@
     <title>home</title>
 </head>
 <body>
-<div class="well">
-    <center>
-        <img class="card-img-top .img-fluid" th:src="@{/resources/images/Logo.png}" alt="Card image cap" style="max-width: 24rem; height: auto">
-    </center>
-</div>
 <div class="row">
     <div class="col-sm-2">
         <nav class="navbar navbar-default">
+            <img class="card-img-top .img-fluid" th:src="@{/resources/images/Logo.png}" alt="Card image cap" style="margin-left: 10px; margin-top: 10px; max-width: 18rem; height: auto">
+            <br>
+            <br>
             <div class="container-fluid" >
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li><br/>
+                    <li class="active"><a href="#">Index</a></li><br/>
+                    <li><a th:href="${'/employee/summary/' + person.getCardChip()}">Statistieken</a></li><br/>
                     <li><a href="#">Taken</a></li><br/>
                     <li><a href="#">Overzicht</a></li><br/>
                     <li><a href="#">Taal</a></li><br/>
@@ -23,47 +22,63 @@
             </div>
         </nav>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-10">
         <div class="well">
-            <h1 th:text="${'Welkom terug: ' + person.getFirstName() + ' ' + person.getLastName() + '/t/t/t/t/t/t/t/tCredits: ' + person.getTotalCredits()}"></h1>
+            <H1 th:text="${'Welkom terug  ' + person.getFirstName() + ' ' + person.getLastName()+ '! (Credits: ' + person.getTotalCredits() + ')'}"></H1>
+        </div>
+        <div class="well">
         <div class="container-fluid">
+
             <div class="row">
-                <div class="col-sm-6">
-                    <div class="card text-primary border-primary ">
-                        <img class="card-img-top .img-fluid" th:src="@{/resources/images/Icon_Tasks.png}" alt="Card image cap" style="max-width: 100%; height: auto">
-                        <div class="card-body">
-                            <h5 class="card-title">Taken</h5>
-                            <p class="card-text"></p>
-                            <a href="#" class="btn btn-primary">Ga verder</a>
+
+                <div class="col-sm-3">
+                    <a th:href="${'/employee/summary/' + person.getCardChip()}">
+                        <div class="card text-primary border-primary ">
+                            <div class="card-body">
+                                <h3 class="card-title">Statistieken</h3>
+                            </div>
+                            <img class="card-img-top .img-fluid" th:src="@{/resources/images/Icon_Statistics.png}" alt="Card image cap" style="max-width: 100%; height: auto">
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <div class="col-sm-6">
-                    <div class="card text-primary border-primary">
-                        <img class="card-img-top .img-fluid" th:src="@{/resources/images/Icon_Statistics.png}" alt="Card image cap" style="max-width: 100%; height: auto">
-                        <div class="card-body">
-                            <h5 class="card-title">Overzicht</h5>
-                            <p class="card-text"></p>
-                            <a href="#" class="btn btn-primary">Ga verder</a>
+
+                <div class="col-sm-3">
+                    <a th:href="${'/employee/tasks/' + person.getCardChip()}">
+                        <div class="card text-primary border-primary ">
+                            <div class="card-body">
+                                <h3 class="card-title">Beschikbare taken</h3>
+                                <p class="card-text"></p>
+                            </div>
+                            <img class="card-img-top .img-fluid" th:src="@{/resources/images/Icon_Tasks.png}" alt="Card image cap" style="max-width: 100%; height: auto">
                         </div>
-                    </div>
+                    </a>
+                </div>
+                <div class="col-sm-3">
+                    <a th:href="${'/employee/tasksoverview/' + person.getCardChip()}">
+                        <div class="card text-primary border-primary">
+                            <div class="card-body">
+                                <h3 class="card-title">Eigen taken</h3>
+                                <p class="card-text"></p>
+                            </div>
+
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
         </div>
     </div>
-    <div class="col-sm-2">
-        <div class="well">
-            <h3>Kies uw taal: </h3>
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">-Selecteer-
-                    <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Nederlands</a></li>
-                    <li><a href="#">English</a></li>
-                    <li><a href="#">Deutsch</a></li>
-                </ul>
-            </div>
+</div>
+<div class="well">
+    <div class="well">
+        <p>Kies uw taal: </p><div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">-Selecteer-
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Nederlands</a></li>
+                <li><a href="#">English</a></li>
+                <li><a href="#">Deutsch</a></li>
+            </ul>
         </div>
     </div>
 </div>

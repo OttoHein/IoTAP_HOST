@@ -57,17 +57,17 @@ public class EmployeeController {
     }
 
     @RequestMapping(value={"employee/task/{id}/{taskId}"}, method = RequestMethod.GET)
-    public ModelAndView employeeTaskOverview(@PathVariable("id") Integer id,
+    public ModelAndView employeeTaskDetail(@PathVariable("id") Integer id,
                                              @PathVariable("taskId") Integer taskId){
         ModelAndView modelAndView = new ModelAndView();
         List<Task> tasks = taskRepository.findAll();
         modelAndView.addObject("tasks", tasks);
-        modelAndView.setViewName("employeeTasks");
+        modelAndView.setViewName("employeeTask");
         return modelAndView;
     }
 
-    @RequestMapping(value={"employee/summary/{id}"}, method = RequestMethod.GET)
-    public ModelAndView employeeTaskOverview(@PathVariable("id") String id){
+    @RequestMapping(value={"employee/tasksoverview/{id}"}, method = RequestMethod.GET)
+    public ModelAndView employeeTasksOverview(@PathVariable("id") String id){
         ModelAndView modelAndView = new ModelAndView();
         List<Task> employeeTask = new ArrayList<Task>();
         List<Task> tasks = taskRepository.findAll();

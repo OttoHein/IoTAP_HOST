@@ -5,20 +5,57 @@
     <title>home</title>
 </head>
 <body>
-<h1>Taken</h1>
+<div class="row">
+    <div class="col-sm-2">
+        <nav class="navbar navbar-default">
+            <img class="card-img-top .img-fluid" th:src="@{/resources/images/Logo.png}" alt="Card image cap" style="margin-left: 10px; margin-top: 10px; max-width: 18rem; height: auto">
+            <br>
+            <br>
+            <div class="container-fluid" >
+                <ul class="nav navbar-nav">
+                    <li><a th:href="${'/employee/index/'}">Index</a></li><br/>
+                    <li class="active"><a th:href="${'/employee/summary/'}">Statistieken</a></li><br/>
+                    <li><a href="#">Taken</a></li><br/>
+                    <li><a href="#">Overzicht</a></li><br/>
+                    <li><a href="#">Taal</a></li><br/>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="col-sm-10">
+        <div class="well">
+            <H1>Beschikbare taken</H1>
+        </div>
+        <div class="well">
+            <div class="container-fluid">
 
-<div class="container-fluid">
-    <div class="row" th:each="task: ${tasks}">
-        <div class="col-sm-6">
-            <div class="card text-primary border-primary" style="width: 18rem;">
-                <img class="card-img-top" th:src="@{/resources/images/Icon_Tasks.png}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Taken</h5>
-                    <p class="card-text"></p>
-                    <a href="#" class="btn btn-primary">Ga verder</a>
+                    <div class="row" >
+                        <div class="col-sm-3" th:each="task: ${tasks}">
+                            <div class="card text-primary border-primary" style="width: 18rem;">
+                                <img class="card-img-top" th:src="@{/resources/images/Icon_Tasks.png}" alt="Card image cap" style="max-width: 18rem; height: auto">
+                                <div class="card-body">
+                                    <h5 class="card-title">Taken</h5>
+                                    <p class="card-text"></p>
+                                    <a href="#" class="btn btn-primary">Ga verder</a>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<div class="well">
+    <div class="well">
+        <p>Kies uw taal: </p><div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">-Selecteer-
+            <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            <li><a href="#">Nederlands</a></li>
+            <li><a href="#">English</a></li>
+            <li><a href="#">Deutsch</a></li>
+        </ul>
+    </div>
     </div>
 </div>
 </body>
