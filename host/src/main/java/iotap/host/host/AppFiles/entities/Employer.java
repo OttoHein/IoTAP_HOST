@@ -1,95 +1,38 @@
 package iotap.host.host.AppFiles.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
+@Table(name="employer")
 public class Employer {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Integer _id;
-    private String _firstName;
-    private String _lastName;
-    private Date _birthDate;
-    private String _nationalRegisteryNumber;
-    private String _eMail;
-    private String _password;
-    private int _totalCredits;
+    private Integer id;
 
-    public Employer(String firstName, String lastName, Date birthDate, String nationalRegisteryNumber, String eMail, String password, int totalCredits) {
-        _firstName = firstName;
-        _lastName = lastName;
-        _birthDate = birthDate;
-        _nationalRegisteryNumber = nationalRegisteryNumber;
-        _eMail = eMail;
-        _password = password;
-        _totalCredits = totalCredits;
-    }
+    @Column(name = "first_name")
+    private String firstName;
 
-    public Integer get_id() {
-        return _id;
-    }
+    @Column(name = "last_name")
+    private String lastName;
 
-    public void set_id(Integer _id) {
-        this._id = _id;
-    }
+    @Column(name = "birthdate")
+    private Date birthDate;
 
-    public String get_firstName() {
-        return _firstName;
-    }
+    @Column(name = "national_registery_number")
+    private String nationalRegisteryNumber;
 
-    public void set_firstName(String _firstName) {
-        this._firstName = _firstName;
-    }
+    @Column(name = "e_mail")
+    private String eMail;
 
-    public String get_lastName() {
-        return _lastName;
-    }
+    @Column(name = "password")
+    private String password;
 
-    public void set_lastName(String _lastName) {
-        this._lastName = _lastName;
-    }
+    @Column(name = "total_credits")
+    private int totalCredits;
 
-    public Date get_birthDate() {
-        return _birthDate;
-    }
+    @OneToMany
+    private List<Task> tasks;
 
-    public void set_birthDate(Date _birthDate) {
-        this._birthDate = _birthDate;
-    }
-
-    public String get_nationalRegisteryNumber() {
-        return _nationalRegisteryNumber;
-    }
-
-    public void set_nationalRegisteryNumber(String _nationalRegisteryNumber) {
-        this._nationalRegisteryNumber = _nationalRegisteryNumber;
-    }
-
-    public String get_eMail() {
-        return _eMail;
-    }
-
-    public void set_eMail(String _eMail) {
-        this._eMail = _eMail;
-    }
-
-    public String get_password() {
-        return _password;
-    }
-
-    public void set_password(String _password) {
-        this._password = _password;
-    }
-
-    public int get_totalCredits() {
-        return _totalCredits;
-    }
-
-    public void set_totalCredits(int _totalCredits) {
-        this._totalCredits = _totalCredits;
-    }
 }

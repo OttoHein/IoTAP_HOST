@@ -1,8 +1,9 @@
 package iotap.host.host.AppFiles.repositories;
 
-import iotap.host.host.AppFiles.entities.TaskDetail;
+import iotap.host.host.AppFiles.entities.Task;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-
-public interface TaskDetailRepository extends CrudRepository<TaskDetail,Integer> {
+@Repository("taskDetailRepository")
+public interface TaskDetailRepository extends CrudRepository<Task,Integer> {
 }

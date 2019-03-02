@@ -1,16 +1,20 @@
 package iotap.host.host.AppFiles.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name="sponsor")
 public class Sponsor {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer _id;
-    private String _name;
-    private String _kboNumber;
-    private String _logoLocation;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "kbo_number")
+    private String kboNumber;
+
+    @Column(name = "logo_location")
+    private String logoLocation;
 }
