@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -54,5 +55,25 @@ public class EmployeeController {
         modelAndView.setViewName("employeeTasks");
         return modelAndView;
     }
+
+    @RequestMapping(value={"employee/summary/{id}"}, method = RequestMethod.GET)
+    public ModelAndView employeeTasks(@PathVariable("id") String id){
+        ModelAndView modelAndView = new ModelAndView();
+        List<Task> employeetask = new ArrayList<Task>();
+
+
+        List<Task> tasks = taskRepository.findAll();
+        for (Task t : tasks) {
+           if( t.getEmployee().toString() == id)
+           {
+               employeetask.add(t);
+           }
+
+        }
+        modelAndView.addObject("tasks", tasks);
+        modelAndView.setViewName("employeeTasks");
+        return modelAndView;
+    }
+
 
 }
