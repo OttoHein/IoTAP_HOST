@@ -1,14 +1,12 @@
 package iotap.host.host.AppFiles.controllers;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class LoginController {
 
-    @RequestMapping(value = {"/"})
+    @RequestMapping("/")
     public String index() {
         return "Greetings from Spring Boot!";
     }

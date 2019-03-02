@@ -1,7 +1,5 @@
 package iotap.host.host;
 
-import java.util.Arrays;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,17 +10,15 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import java.util.Arrays;
 
+
 @SpringBootApplication(scanBasePackages="iotap.host.host.AppFiles")
 @EnableJpaRepositories("repositories.package")
 @EntityScan("entities.package")
 public class HostApplication {
 
-
 	public static void main(String[] args) {
 		SpringApplication.run(HostApplication.class, args);
-
 	}
-
 
 	@Bean
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
