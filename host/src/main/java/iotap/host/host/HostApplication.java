@@ -1,24 +1,22 @@
 package iotap.host.host;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import java.util.Arrays;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-
 
 @SpringBootApplication
 public class HostApplication {
 
+
 	public static void main(String[] args) {
 		SpringApplication.run(HostApplication.class, args);
+
 	}
+
 
 	@Bean
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
