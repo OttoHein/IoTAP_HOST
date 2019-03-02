@@ -1,42 +1,68 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
     <title>home</title>
 </head>
 <body>
-<h1 th:text="${'Welkom terug: ' + id + first_name}"></h1>
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="card text-primary border-primary" style="width: 18rem;">
-                <img class="card-img-top" th:src="@{/resources/images/Icon_Tasks.png}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Taken</h5>
-                    <p class="card-text"></p>
-                    <a href="#" class="btn btn-primary">Ga verder</a>
+<div class="well">
+    <center>
+        <img class="card-img-top .img-fluid" th:src="@{/resources/images/Logo.png}" alt="Card image cap" style="max-width: 24rem; height: auto">
+    </center>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid" >
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li><br/>
+                    <li><a href="#">Taken</a></li><br/>
+                    <li><a href="#">Overzicht</a></li><br/>
+                    <li><a href="#">Taal</a></li><br/>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="col-sm-8">
+        <div class="well">
+            <h1 th:text="${'Welkom terug: ' + id + first_name}"></h1>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card text-primary border-primary ">
+                        <img class="card-img-top .img-fluid" th:src="@{/resources/images/Icon_Tasks.png}" alt="Card image cap" style="max-width: 100%; height: auto">
+                        <div class="card-body">
+                            <h5 class="card-title">Taken</h5>
+                            <p class="card-text"></p>
+                            <a href="#" class="btn btn-primary">Ga verder</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card text-primary border-primary">
+                        <img class="card-img-top .img-fluid" th:src="@{/resources/images/Icon_Statistics.png}" alt="Card image cap" style="max-width: 100%; height: auto">
+                        <div class="card-body">
+                            <h5 class="card-title">Overzicht</h5>
+                            <p class="card-text"></p>
+                            <a href="#" class="btn btn-primary">Ga verder</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-sm-6">
-            <div class="card text-primary border-primary" style="width: 18rem;">
-                <img class="card-img-top" th:src="@{/resources/images/Icon_Statistics.png}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Overzicht</h5>
-                    <p class="card-text"></p>
-                    <a href="#" class="btn btn-primary">Ga verder</a>
-                </div>
-            </div>
         </div>
-        <div class="col-sm-6">
-            <div class="card text-primary border-primary" style="width: 18rem;">
-                <img class="card-img-top" th:src="@{/resources/images/Icon_Language.png}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Taal aanpassen</h5>
-                    <p class="card-text"></p>
-                    <a href="#" class="btn btn-primary">Ga verder</a>
-                </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="well">
+            <h3>Kies uw taal: </h3>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">-Selecteer-
+                    <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Nederlands</a></li>
+                    <li><a href="#">English</a></li>
+                    <li><a href="#">Deutsch</a></li>
+                </ul>
             </div>
         </div>
     </div>
