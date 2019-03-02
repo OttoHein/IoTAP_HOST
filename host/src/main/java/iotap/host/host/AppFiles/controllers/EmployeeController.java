@@ -36,9 +36,12 @@ public class EmployeeController {
 
 
     @RequestMapping(value={"/employee/index/{id}"}, method = RequestMethod.GET)
-    public ModelAndView employeeMain(@PathVariable("id") Integer id){
+    public ModelAndView employeeMain(@PathVariable("id") String id){
+        Employee person = employeeRepository.findByCardChip(id);
+        System.out.println(person);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("id", id);
+        modelAndView.addObject("person", person);
+        //modelAndView.addObject("first_name",person.getFirstName());
         modelAndView.setViewName("employeeIndex");
         return modelAndView;
     }
