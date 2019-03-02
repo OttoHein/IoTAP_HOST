@@ -25,4 +25,7 @@ public class Employee {
 
     @OneToMany
     private List<Task> tasks;
+
+    public Employee() {
+    }
 }
