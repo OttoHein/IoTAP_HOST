@@ -10,6 +10,10 @@ public class Employee {
     @Column(name = "id")
     private String id;
 
+    public String getFirstName() {
+        return firstName;
+    }
+
     @Column(name = "first_name")
     private String firstName;
 
