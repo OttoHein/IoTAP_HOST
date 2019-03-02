@@ -56,23 +56,30 @@ public class EmployeeController {
         return modelAndView;
     }
 
-    @RequestMapping(value={"employee/summary/{id}"}, method = RequestMethod.GET)
-    public ModelAndView employeeTasks(@PathVariable("id") String id){
+    @RequestMapping(value={"employee/task/{id}/{taskId}"}, method = RequestMethod.GET)
+    public ModelAndView employeeTaskOverview(@PathVariable("id") Integer id,
+                                             @PathVariable("taskId") Integer taskId){
         ModelAndView modelAndView = new ModelAndView();
-        List<Task> employeetask = new ArrayList<Task>();
-
-
         List<Task> tasks = taskRepository.findAll();
-        for (Task t : tasks) {
-           if( t.getEmployee().toString() == id)
-           {
-               employeetask.add(t);
-           }
-
-        }
         modelAndView.addObject("tasks", tasks);
         modelAndView.setViewName("employeeTasks");
         return modelAndView;
     }
-    
+
+    @RequestMapping(value={"employee/summary/{id}"}, method = RequestMethod.GET)
+    public ModelAndView employeeTaskOverview(@PathVariable("id") String id){
+        ModelAndView modelAndView = new ModelAndView();
+        List<Task> employeeTask = new ArrayList<Task>();
+        List<Task> tasks = taskRepository.findAll();
+        for (Task t : tasks) {
+           if( t.getEmployee().toString() == id)
+           {
+               employeeTask.add(t);
+           }
+        }
+        modelAndView.addObject("tasks");
+        modelAndView.setViewName("employeeTasksOverview");
+        return modelAndView;
+    }
+
 }
