@@ -48,7 +48,7 @@ public class EmployeeController {
     }
 
     @RequestMapping(value={"employee/tasks/{id}"}, method = RequestMethod.GET)
-    public ModelAndView employeeTasks(@PathVariable("id") Integer id){
+    public ModelAndView employeeTasks(@PathVariable("id") String id){
         ModelAndView modelAndView = new ModelAndView();
         List<Task> tasks = taskRepository.findAll();
         modelAndView.addObject("tasks", tasks);
