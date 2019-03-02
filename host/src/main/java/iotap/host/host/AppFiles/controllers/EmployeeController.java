@@ -55,4 +55,13 @@ public class EmployeeController {
         return modelAndView;
     }
 
+    @RequestMapping(value={"employee/task/{id}/{taskId"}, method = RequestMethod.GET)
+    public ModelAndView employeeTaskOverview(@PathVariable("id") Integer id, @PathVariable("taskId") Integer taskId){
+        ModelAndView modelAndView = new ModelAndView();
+        List<Task> tasks = taskRepository.findAll();
+        modelAndView.addObject("tasks", tasks);
+        modelAndView.setViewName("employeeTasks");
+        return modelAndView;
+    }
+
 }
