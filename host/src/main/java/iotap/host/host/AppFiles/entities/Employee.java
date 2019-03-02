@@ -13,6 +13,10 @@ public class Employee {
     @Column(name = "first_name")
     private String firstName;
 
+    public String getFirstName() {
+        return firstName;
+    }
+
     @Column(name = "last_name")
     private String lastName;
 
