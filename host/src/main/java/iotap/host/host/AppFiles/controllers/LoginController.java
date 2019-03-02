@@ -23,13 +23,21 @@ public class LoginController {
     }
 
     @RequestMapping(value={"/employee/scan/{id}"}, method = RequestMethod.GET)
-    public RedirectView employerScan(@PathVariable("id") String id){
+    public RedirectView employeeScan(@PathVariable("id") String id){
         return new RedirectView("/employee/index/" + id);
     }
 
 
     @RequestMapping(value={"/index/{id}"}, method = RequestMethod.GET)
-    public ModelAndView employee(@PathVariable("id") Integer id){
+    public ModelAndView employeeMain(@PathVariable("id") Integer id){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("id", id);
+        modelAndView.setViewName("employeeIndex");
+        return modelAndView;
+    }
+
+    @RequestMapping(value={"/index/{id}/tasks"}, method = RequestMethod.GET)
+    public ModelAndView employeeTasks(@PathVariable("id") Integer id){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("id", id);
         modelAndView.setViewName("employeeIndex");
