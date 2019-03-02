@@ -20,9 +20,19 @@ public class Employee {
     @Column(name = "last_name")
     private String lastName;
 
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getTotalCredits() {
+        return totalCredits;
+    }
+
     @Column(name = "total_credits")
     private int totalCredits;
 
+    @Column(name = "card_chip")
+    private String cardChip;
     @OneToMany
     private List<Task> tasks;
 
