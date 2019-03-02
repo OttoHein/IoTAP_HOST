@@ -5,10 +5,10 @@
     <title>home</title>
 </head>
 <body>
-<h1">Taken</h1>
+<h1>Taken</h1>
 
 <div class="container-fluid">
-    <div class="row">
+    <div class="row" th:each="task: ${tasks}">
         <div class="col-sm-3">
             <div class="card text-primary border-primary" style="width: 18rem;">
                 <img class="card-img-top" th:src="@{/resources/images/Icon_Tasks.png}" alt="Card image cap">
