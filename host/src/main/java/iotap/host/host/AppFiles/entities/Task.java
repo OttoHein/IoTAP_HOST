@@ -1,5 +1,7 @@
 package iotap.host.host.AppFiles.entities;
 
+import org.springframework.lang.Nullable;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -34,9 +36,11 @@ public class Task {
     @Column(name = "credits")
     private int credits;
 
+    @Nullable
     @ManyToOne
     private Employee employee;
 
+    @Nullable
     @ManyToOne
     private Employer employer;
 
@@ -149,5 +153,11 @@ public class Task {
 
     public void setEmployer(Employer employer) {
         this.employer = employer;
+    }
+
+    public Task(Integer id) {
+        this.id = id;
+    }
+    public Task() {
     }
 }
