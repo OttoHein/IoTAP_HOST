@@ -28,7 +28,7 @@ public class LoginController {
     }
 
 
-    @RequestMapping(value={"/index/{id}"}, method = RequestMethod.GET)
+    @RequestMapping(value={"/employee/index/{id}"}, method = RequestMethod.GET)
     public ModelAndView employeeMain(@PathVariable("id") Integer id){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("id", id);
@@ -36,7 +36,7 @@ public class LoginController {
         return modelAndView;
     }
 
-    @RequestMapping(value={"/index/{id}/tasks"}, method = RequestMethod.GET)
+    @RequestMapping(value={"employee/tasks/{id}"}, method = RequestMethod.GET)
     public ModelAndView employeeTasks(@PathVariable("id") Integer id){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("id", id);
