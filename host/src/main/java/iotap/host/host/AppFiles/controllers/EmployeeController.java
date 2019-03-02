@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 @RestController
-public class LoginController {
+public class EmployeeController {
 
     @Autowired
     private EmployeeRepository employeeRepository;
@@ -43,4 +43,5 @@ public class LoginController {
         modelAndView.setViewName("employeeIndex");
         return modelAndView;
     }
+    
 }
